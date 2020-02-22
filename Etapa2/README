@@ -1,0 +1,75 @@
+Proiect PA Etapa 2 README
+
+1. Instructiuni de compilare
+    - regula de build: genereaza byteCode-ul botului care va fi mai departe 
+      interpretat de VM;
+    - regula de run: ruleaza botul;
+    - regula de clean: sterge fisierele *.class.
+
+2. Structura proiectului
+    - Starter kitul oficial, cu modificari aduse clasei Position, 
+    unde variabilele final au fost facute sa poata fi modificate si clasei 
+    GameMap, unde a fost imbunatatita functia de naiveNavigation;
+    - botul MyBot care se foloseste de sursele din hlt.
+
+3. Abordare algoritmica
+    La aceasta etapa, imbunatatirile au fost mai mult incrementale, rafinand 
+    functii definite la etapa anterioara si adaugand altele noi, pentru a putea
+    reusi sa invingem diversii boti adversari. In speta au fost aduse o serie de
+    modificari:
+
+    - a fost adaugata o logica pentru late game, care, in functie de dimensiunea
+    hartii, decide turul la care toate navele trebuie sa se indrepte catre cel 
+    mai apropiat dropoff/shipyard pentru a depune, astfel minimizandu-se canti-
+    tatea de halite irosite (halite colectat, dar care ramanea nedepus);
+
+    - algoritmul de naive navigation a fost imbunatatit pentru a sustine aceasta
+    logica. Daca exista o barca proprie pe dropoff/shipyard, functia de 
+    naiveNavigation va ignora coliziunea cu aceasta daca jocul a intrat in late
+    game (navele trebuie sa depuna cat mai repede posibil). Daca este o barca 
+    inamica aflata pe aceasta pozitie, ea va fi ciocnita indiferent, halite-ul 
+    ramanand in posesia noastra;
+
+    - a fost imbunatatit algoritmul de creare al dropoff-ului, el acum 
+    adaptandu-se in functie de dimensiunile hartii de joc. Distanta minima la 
+    care trebuie sa se afle o nava variaza, astfel, in functie de lungimea si 
+    latimea hartii.
+
+4. Surse de inspiratie
+    Pentru aceasta etapa, sursa principala de inspiratie folosita a fost 
+    urmarirea reluarilor generate de checker. Astfel, pe botul de la etapa 
+    precedenta au putut fi descoperite si corectate diversele vulnerabilitati
+    precum:
+    - lipsa unei logici pentru a intoarce toate navele proprii la shipyard sau 
+    dropoff spre finalul jocului, pentru a nu ramane cu halite risipit;
+
+    - corectia algoritmului pentru creare de dropoff pentru a respecta si 
+    hartile sarace in resurse, astfel limitandu-se halite-ul risipit pe crearea
+    unui dropoff care ar fi dat rezultate sub-optime.
+
+    Cu toate acestea, ramane de stabilit o logica pentru ciocnirea favorabila a 
+    navelor inamicului si una pentru pazirea punctelor de dropoff/shipyard 
+    (Dragon, we're onto you).
+
+5. Responsabilitatile membrilor echipei:
+    Stefan Adrian Daniel: a implementat efectiv ideile la care am ajuns in urma 
+    sesiunilor de lucru, a contribuit la modificarea functiei de naiveNavigation
+    pentru a acomoda strategia de late game;
+
+    Necula Horatiu: a dezvoltat strategia de late game si la 
+    logica de instiintare a navelor care trebuie sa se intoarca la 
+    shipyard/dropoff;
+
+    Georgescu Andrei Calin: a contribuit la strategia de late game si la detalii
+    de implementare pentru a notifica navele proprii ca este momentul sa se 
+    intoarca spre baza. A incercat si dezvoltarea unei strategii de a vana nave
+    inamice, insa fara succes;
+
+    Musatescu Costin: a determinat strategia de creare a dropoffului (aflarea 
+    unei distante minime si a unei cantitati minime necesare de halite).
+
+    Pe parte de testare si identificare a eventualelor vulnerabilitati de logica
+    intreaga echipa a adus obsersvatii si solutii pertinente, contribuind la 
+    imbunatatirea botului fata de etapa precedenta.
+
+

@@ -1,0 +1,62 @@
+Proiect PA Etapa 1 README
+
+1. Instructiuni de compilare
+	- regula de build: genereaza byteCode-ul botului care va fi mai departe interpretat de VM
+	- regula de run: ruleaza botul
+	- regula de clean: sterge fisierele *.class
+
+2. Structura proiectului
+	- Starter kitul oficial, cu modificari aduse clasei Position, unde variabilele 
+	final au fost facute sa poata fi modificate
+	- botul MyBot care se foloseste de sursele din hlt
+
+3. Abordarea alogoritmica
+	La fiecare rand pentru fiecare ship verificam daca shipul trebuie sa 
+	colecteze sau sa depoziteze. 
+	Daca o nava este nou creata, ea va colecta in mod implicit. Altfel, daca nava a atins
+	TARGET_HALITE si se afla in jurul shipyardului sau are capacitate maxima de 
+	halite, nava trebuie sa depoziteze urgent.
+
+	In cazul in care shipul trebuie sa colecteze, calculam o pozitie cu cantitate optima de
+	halite in felul urmator:
+		- alegem pozitiile vecine disponibile (pozitie disponibila = nu a fost aleasa de un ship
+		anterior in turul curent si nu este ocupata);
+		- pentru fiecare pozitie disponibila verificam daca pozitia este "safe", adica directiile
+		accesibile din aceasta pozitie sa nu fie ocupate;
+		- in acest moment avem pozitiile "safe" si calculam pozitia cu cantitatea maxima de
+		halite;
+		- in cazul in care este mai rentabil sa ramanem pe loc decat a ne deplasa pe casuta
+		"safe" cu cantitatea maxima de halite, shipul va ramane pe loc pentru a colecta. Altfel
+		dam comanda sa se mute pe pozitia "safe" si de asemenea ii indicam shipului ca tura
+		urmatoare sa ramana pe loc sa extraga halite din pozitia "safe" cu halite maxim;
+
+	In cazul in care trebuie sa depoziteze, verificam daca nu am construit un dropoff si shipul
+	se gaseste intr-o zona indepartata de shipyard, cu o cantitate de halite destul de mare si cu
+	numar de shipuri proprii in acea zona cel putin egal cu SHIPS_FOR_DROPOFF, atunci nava se
+	transforma in dropoff.
+	In cazul in care a fost deja facut un dropoff, calculam cel mai apropiat shipyard/dropoff si
+	navigam spre el pentru a depune. Dupa o depunere, shipul isi schimba starea si trebuie din
+	nou sa colecteze.
+
+4. Surse de inspiratie
+	Pentru partea de diferentiere a statusului fiecarei barci a fost vizionat urmatorul videoclip:
+	https://youtu.be/_h3HVbH93i4
+
+5. Responsabilitatile membrilor echipei:
+	Stefan Adrian: a scris cod si a realizat partea de research, modificarea conditiilor de deplasare
+		       in jurul shipyardului
+	Georgescu Andrei Calin: identificarea zonei optime pentru crearea unui dropoff, 
+			modificarea conditiei de depunere
+	Musatescu Costin Teodor: a adus imbunatatiri formulei de deplasare pentru navele 
+	colectoare 
+	Necula Horatiu: a gasit un algoritm pentru a identifica pozitiile "safe" pe care
+	sa ne
+	deplasam
+
+	Toata echipa a participat la partea de testare si imbunatatire a codului. Au fost
+	rezolvate
+	eventualele buguri si coliziuni. 
+
+
+
+

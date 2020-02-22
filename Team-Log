@@ -1,0 +1,26 @@
+Etapa 1:
+
+Stefan Adrian: m-am ocupat de partea de implementare si am realizat partea de research, precum si modificarea conditiilor de deplasare in jurul shipyardului. De asemenea, am incercat o imbunatatire a miscarii navelor in care o barca se poate misca pe o pozitie care nu este 100% "safe", adica pozitia poate fi inconjurata de pozitii ocupate cu nave proprii. Dar abordarea dadea gres in unele lupte, deoarece unele nave care nu erau nici verzi, nici rosii(adica daca dadeai click pe nava, numele ownerului nu era nici verde, nici rosu), asa ca am renuntat la ea.
+
+Georgescu Andrei Calin: Am dezvoltat conditia de creare pentru dropoff, folosind un algoritm care calculeaza cantitatea de halite dintr-o zona data, precum si numarul de nave inconjuratoare. Am adus imbunatatiri algoritmului de depunere, pentru a acomoda si situatiile in care o nava se afla in apropierea unui dropoff si avea o cantitate considerabila de halite. 
+
+Musatescu Costin-Teodor: Am adus imbunatatiri formulei de deplasare pentru navele colectoare. De asemenea, am contribuit la determinarea zonei potrivite pentru plasarea dropoff-ului.
+
+Necula Horatiu: Am implementat algoritmul de miscare a navelor. Acesta cauta o pozitie safe din cele 4 posibile, fiind atent la vecinii casutelor pentru a evita coliziunile. Daca se gaseste o nava (proprie / a inamicului) la diferenta de o casuta fata de nava noastra algoritmul considera acea pozitie ca fiind nesigura, evitand astfel orice coliziune care ar putea aparea.
+
+Etapa 2:
+Stefan Adrian: am implementat efectiv ideile la care am ajuns in urma sesiunilor de lucru, si de
+asemenea am contribuit la modificarea functiei de naiveNavigation pentru a acomoda strategia de
+late game.
+
+Necula Horatiu: am analizt strategiile de joc ale botilor si am propus mai multe abordari pe care le-am discutat in sesiunile de lucru, de asemenea am ajutat la modificarea functie naiveNavigation
+
+Georgescu Andrei Calin: am dezvoltat, impreuna cu echipa, o strategie viabila pentru late
+game si un mod de a notifica navele friendly ca trebuie sa depuna. Am incercat si 
+dezvoltarea unei strategii pentru a vana navele celorlalti jucatori, dar ramane un TODO 
+pentru urmatoarele etape.
+
+Musatescu Costin: am determinat strategia de creare a dropoffului (aflarea unei distante minime si a unei cantitati minime necesare de halite).
+De asemenea, am incercat sa imbunatatesc algoritmul de colectare, mai exact, in cazul in care barca trebuia sa stea pe loc, prin verificarea 
+faptului ca pozitia era sigura, adica nu era inconjurata de nave ale inamicului, insa abordarea a fost fara succes din cauza faptului ca la un
+anumit moment de timp (lucru observat in timpul testarii),  barcile se blocau (probabil in urma omiterii unei greseli in implemetare).
